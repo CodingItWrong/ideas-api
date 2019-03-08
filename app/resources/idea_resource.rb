@@ -1,3 +1,5 @@
 class IdeaResource < JSONAPI::Resource
-  attributes :summary, :quote
+  attributes :summary
+
+  has_many :quotes
 end
