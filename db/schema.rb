@@ -10,14 +10,19 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_02_22_190554) do
+ActiveRecord::Schema.define(version: 2019_03_08_192255) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
+  create_table "authors", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "ideas", force: :cascade do |t|
     t.text "summary"
-    t.text "quote"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -64,6 +69,25 @@ ActiveRecord::Schema.define(version: 2019_02_22_190554) do
     t.index ["uid"], name: "index_oauth_applications_on_uid", unique: true
   end
 
+  create_table "quotes", force: :cascade do |t|
+    t.bigint "source_id"
+    t.bigint "idea_id"
+    t.text "text"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["idea_id"], name: "index_quotes_on_idea_id"
+    t.index ["source_id"], name: "index_quotes_on_source_id"
+  end
+
+  create_table "sources", force: :cascade do |t|
+    t.string "title"
+    t.string "url"
+    t.bigint "author_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["author_id"], name: "index_sources_on_author_id"
+  end
+
   create_table "users", force: :cascade do |t|
     t.string "email"
     t.string "password_digest"
@@ -74,4 +98,7 @@ ActiveRecord::Schema.define(version: 2019_02_22_190554) do
 
   add_foreign_key "oauth_access_grants", "oauth_applications", column: "application_id"
   add_foreign_key "oauth_access_tokens", "oauth_applications", column: "application_id"
+  add_foreign_key "quotes", "ideas"
+  add_foreign_key "quotes", "sources"
+  add_foreign_key "sources", "authors"
 end
