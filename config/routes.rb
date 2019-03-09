@@ -2,6 +2,9 @@
 Rails.application.routes.draw do
   use_doorkeeper
   jsonapi_resources :users, only: %w[create]
+
+  jsonapi_resources :authors
   jsonapi_resources :ideas
-  root to: 'pages#welcome'
+  jsonapi_resources :quotes
+  jsonapi_resources :sources
 end
