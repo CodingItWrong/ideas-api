@@ -2,7 +2,7 @@ FROM ruby:2.6.1
 
 RUN apt-get update
 RUN apt-get install -y nodejs
-RUN gem install nokogiri -v 1.9.1
+RUN gem install nokogiri -v 1.10.1
 
 RUN mkdir /myapp
 WORKDIR /myapp
