@@ -7,6 +7,11 @@ class AuthorResource < ApplicationResource
     _model.user = current_user
   end
 
+  def self.records(options = {})
+    user = current_user(options)
+    user.authors
+  end
+
   def self.creatable_fields(context)
     super - [:user]
   end

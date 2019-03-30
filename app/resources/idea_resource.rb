@@ -7,6 +7,11 @@ class IdeaResource < ApplicationResource
     _model.user = current_user
   end
 
+  def self.records(options = {})
+    user = current_user(options)
+    user.ideas
+  end
+
   def self.creatable_fields(context)
     super - [:user]
   end
