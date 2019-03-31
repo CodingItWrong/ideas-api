@@ -1,6 +1,6 @@
 class Quote < ApplicationRecord
   belongs_to :source
-  belongs_to :idea
+  belongs_to :idea, optional: true
 
   validates :text, presence: true
 end
