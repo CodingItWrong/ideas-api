@@ -1,11 +1,10 @@
+# frozen_string_literal: true
 class IdeaResource < ApplicationResource
   attributes :summary
 
   has_many :quotes
 
-  before_create do
-    _model.user = current_user
-  end
+  before_create { _model.user = current_user }
 
   def self.records(options = {})
     user = current_user(options)
@@ -13,10 +12,10 @@ class IdeaResource < ApplicationResource
   end
 
   def self.creatable_fields(context)
-    super - [:user]
+    super - %i[user]
   end
 
   def self.updatable_fields(context)
-    super - [:user]
+    super - %i[user]
   end
 end
