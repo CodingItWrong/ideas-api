@@ -39,7 +39,7 @@ jobs:
           paths:
             - node_modules
             - ./vendor/bundle
-          key: v1-dependencies-{{ checksum "Gemfile.lock" }}-{{ checksum "frontend/yarn.lock" }}
+          key: v1-dependencies-{{ checksum "Gemfile.lock" }}-{{ checksum "yarn.lock" }}
 
       # Database setup
       - run: bundle exec rails db:create
