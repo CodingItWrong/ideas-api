@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_03_30_162944) do
+ActiveRecord::Schema.define(version: 2019_04_25_102407) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -28,6 +28,7 @@ ActiveRecord::Schema.define(version: 2019_03_30_162944) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.bigint "user_id"
+    t.text "comments"
     t.index ["user_id"], name: "index_ideas_on_user_id"
   end
 
@@ -79,6 +80,7 @@ ActiveRecord::Schema.define(version: 2019_03_30_162944) do
     t.text "text"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.text "comments"
     t.index ["idea_id"], name: "index_quotes_on_idea_id"
     t.index ["source_id"], name: "index_quotes_on_source_id"
   end
@@ -89,6 +91,7 @@ ActiveRecord::Schema.define(version: 2019_03_30_162944) do
     t.bigint "author_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.date "date"
     t.index ["author_id"], name: "index_sources_on_author_id"
   end
 
