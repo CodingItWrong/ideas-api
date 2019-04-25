@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 class IdeaResource < ApplicationResource
-  attributes :summary
+  attributes :summary, :comments
 
   has_many :quotes
 
