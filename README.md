@@ -1,6 +1,10 @@
 # Ideas
 
-This is a short description of your app.
+JSON:API backend for Ideas, an app for grouping quotes into conceptual ideas.
+
+Implemented with Rails and JSONAPI::Resources.
+
+User interface is provided by [ideas-octane](https://github.com/CodingItWrong/ideas-octane).
 
 ## Getting Started
 
