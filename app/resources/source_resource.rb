@@ -4,6 +4,7 @@ class SourceResource < ApplicationResource
 
   has_one :author
   has_many :quotes
+  has_many :tags
 
   def self.records(options = {})
     user = current_user(options)
