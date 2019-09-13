@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 class AuthorResource < ApplicationResource
-  attributes :name
+  attributes :name, :affiliation
 
   has_many :sources
 
