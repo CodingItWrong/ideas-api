@@ -1,8 +1,7 @@
-FROM ruby:2.6.3
+FROM ruby:2.6.5
 
 RUN apt-get update
 RUN gem install bundler
-RUN gem install nokogiri -v 1.10.4
 
 RUN mkdir /myapp
 WORKDIR /myapp
