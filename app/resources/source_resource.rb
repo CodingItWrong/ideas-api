@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 class SourceResource < ApplicationResource
-  attributes :title, :url, :date
+  attributes :title, :url, :date, :created_at
 
   has_one :author
   has_many :quotes
