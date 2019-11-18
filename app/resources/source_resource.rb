@@ -3,6 +3,7 @@ class SourceResource < ApplicationResource
   attributes :title, :url, :date, :created_at
 
   has_one :author
+  has_one :medium
   has_many :quotes
   has_many :tags
 

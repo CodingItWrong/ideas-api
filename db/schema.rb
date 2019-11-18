@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_09_13_173000) do
+ActiveRecord::Schema.define(version: 2019_11_18_111113) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -31,6 +31,12 @@ ActiveRecord::Schema.define(version: 2019_09_13_173000) do
     t.bigint "user_id"
     t.text "comments"
     t.index ["user_id"], name: "index_ideas_on_user_id"
+  end
+
+  create_table "media", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
   end
 
   create_table "oauth_access_grants", force: :cascade do |t|
@@ -94,7 +100,9 @@ ActiveRecord::Schema.define(version: 2019_09_13_173000) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.date "date"
+    t.bigint "medium_id"
     t.index ["author_id"], name: "index_sources_on_author_id"
+    t.index ["medium_id"], name: "index_sources_on_medium_id"
   end
 
   create_table "sources_tags", id: false, force: :cascade do |t|
@@ -123,4 +131,5 @@ ActiveRecord::Schema.define(version: 2019_09_13_173000) do
   add_foreign_key "quotes", "ideas"
   add_foreign_key "quotes", "sources"
   add_foreign_key "sources", "authors"
+  add_foreign_key "sources", "media"
 end
