@@ -5,6 +5,7 @@ Rails.application.routes.draw do
 
   jsonapi_resources :authors
   jsonapi_resources :ideas
+  jsonapi_resources :media
   jsonapi_resources :quotes
   jsonapi_resources :sources
   jsonapi_resources :tags
