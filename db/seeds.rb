@@ -2,10 +2,10 @@
 user = User.create!(email: 'example@example.com', password: 'password')
 other_user = User.create!(email: 'other@example.com', password: 'password')
 
-Media.create!(name: 'Article')
-Media.create!(name: 'Book')
-Media.create!(name: 'Podcast')
-Media.create!(name: 'Talk')
+Medium.create!(name: 'Article')
+Medium.create!(name: 'Book')
+Medium.create!(name: 'Podcast')
+Medium.create!(name: 'Talk')
 
 idea1 =
   user.ideas.create!(
