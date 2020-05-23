@@ -3,7 +3,7 @@ user = User.create!(email: 'example@example.com', password: 'password')
 other_user = User.create!(email: 'other@example.com', password: 'password')
 
 Medium.create!(name: 'Article')
-Medium.create!(name: 'Book')
+book = Medium.create!(name: 'Book')
 Medium.create!(name: 'Podcast')
 Medium.create!(name: 'Talk')
 
@@ -19,11 +19,11 @@ idea2 =
 other_idea = other_user.ideas.create!(summary: 'Vampires are sparkly.')
 
 other_author = other_user.authors.create(name: 'Stephanie Meyer')
-other_source = other_author.sources.create!(title: 'Twilight')
+other_source = other_author.sources.create!(title: 'Twilight', medium: book)
 other_source.quotes.create!(idea: other_idea, text: '"Say it." "Vampire."')
 
 sandi = user.authors.create!(name: 'Sandi Metz')
-pood = sandi.sources.create!(title: 'Practical Object-Oriented Design in Ruby')
+pood = sandi.sources.create!(title: 'Practical Object-Oriented Design in Ruby', medium: book)
 pood.quotes.create!(
   idea: idea1,
   text:
@@ -31,7 +31,7 @@ pood.quotes.create!(
 )
 
 fowler = user.authors.create!(name: 'Martin Fowler')
-refactoring = fowler.sources.create!(title: 'Refactoring')
+refactoring = fowler.sources.create!(title: 'Refactoring', medium: book)
 refactoring.quotes.create!(
   idea: idea2,
   text:
